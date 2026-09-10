@@ -55,48 +55,6 @@ if ('IntersectionObserver' in window) {
   revealElements.forEach((element) => element.classList.add('is-visible'));
 }
 
-const machinesInput = document.querySelector('[data-machines]');
-const machinesOutput = document.querySelector('[data-machines-output]');
-const customerPriceInput = document.querySelector('[data-customer-price]');
-const platformCostInput = document.querySelector('[data-platform-cost]');
-const marginOutput = document.querySelector('[data-margin]');
-const costBar = document.querySelector('[data-cost-bar]');
-const marginBar = document.querySelector('[data-margin-bar]');
-
-const formatCurrency = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  maximumFractionDigits: 0,
-});
-
-function updateCalculator() {
-  const machines = Math.max(0, Number(machinesInput?.value) || 0);
-  const customerPrice = Math.max(0, Number(customerPriceInput?.value) || 0);
-  const platformCost = Math.max(0, Number(platformCostInput?.value) || 0);
-  const monthlyMarginPerMachine = Math.max(0, customerPrice - platformCost);
-  const annualMargin = machines * monthlyMarginPerMachine * 12;
-  const total = Math.max(customerPrice, 1);
-  const costPercent = Math.min(100, (platformCost / total) * 100);
-  const marginPercent = Math.max(0, 100 - costPercent);
-
-  if (machinesOutput) machinesOutput.textContent = machines.toLocaleString('en-US');
-  if (marginOutput) marginOutput.textContent = formatCurrency.format(annualMargin);
-  if (costBar) costBar.style.width = `${costPercent}%`;
-  if (marginBar) marginBar.style.width = `${marginPercent}%`;
-
-  if (machinesInput) {
-    const min = Number(machinesInput.min);
-    const max = Number(machinesInput.max);
-    const percentage = ((machines - min) / (max - min)) * 100;
-    machinesInput.style.setProperty('--range-progress', `${percentage}%`);
-  }
-}
-
-[machinesInput, customerPriceInput, platformCostInput].forEach((input) => {
-  input?.addEventListener('input', updateCalculator);
-});
-updateCalculator();
-
 const demoData = [
   { online: 124, alerts: 4, utilization: '87.6%', load: '76.8', health: 96 },
   { online: 125, alerts: 3, utilization: '88.1%', load: '78.2', health: 97 },

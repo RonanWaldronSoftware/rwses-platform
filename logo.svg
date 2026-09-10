@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 84" role="img" aria-labelledby="title desc">
+  <title id="title">RWSES</title>
+  <desc id="desc">The W is rotated counter-clockwise to form two forward arrows between R and SES.</desc>
+  <style>
+    text { fill:#101a17; font:700 61px Arial,sans-serif; letter-spacing:-3px }
+    path { fill:none; stroke:#8bac1e; stroke-width:9; stroke-linecap:round; stroke-linejoin:round }
+  </style>
+  <text x="2" y="63">R</text>
+  <path d="M78 66 120 54 92 42 120 30 78 18"/>
+  <text x="140" y="63">SES</text>
+</svg>

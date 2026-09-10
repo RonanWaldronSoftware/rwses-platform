@@ -132,19 +132,30 @@ svg {
 .wordmark {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
   width: fit-content;
-  font-family: 'Manrope', sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -1px;
 }
 
 .wordmark svg {
-  width: 27px;
+  width: 126px;
+  height: auto;
+  overflow: visible;
+  fill: currentColor;
+  stroke: none;
+}
+
+.wordmark svg text {
+  fill: currentColor;
+  stroke: none;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1.4px;
+}
+
+.wordmark .wordmark-arrow {
   fill: none;
-  stroke: currentColor;
-  stroke-width: 2.2;
+  stroke: #8bac1e;
+  stroke-width: 4;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -2444,12 +2455,8 @@ input[type='range']::-moz-range-thumb {
     backdrop-filter: blur(18px);
   }
 
-  .wordmark {
-    font-size: 21px;
-  }
-
   .wordmark svg {
-    width: 24px;
+    width: 112px;
   }
 
   .hero {
